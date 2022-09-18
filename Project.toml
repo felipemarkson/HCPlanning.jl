@@ -1,0 +1,9 @@
+name = "HCPlanning"
+uuid = "41cf87f7-05a7-4432-a4c7-9b4c36231be7"
+authors = ["Felipe M. dos S. Monteiro <fmarkson@outlook.com>"]
+version = "0.1.0"
+
+[deps]
+Gurobi = "2e9cd046-0924-5485-92f1-d5272153d98b"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+MunozDelgado2014 = "13da4ae5-6830-5b45-8fa1-3a1d57a72793"
