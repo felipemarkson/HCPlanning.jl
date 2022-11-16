@@ -93,8 +93,10 @@ function build_model(path2main)
         Zˡₖ[l][k] * ℓₛᵣ[s, r] * hc_fˡₛᵣₖₜᵦₕ[l, s, r, k, t, b, h, u] / Vbase - (hc_vₛₜᵦₕ[s, t, b, h, u] - hc_vₛₜᵦₕ[r, t, b, h, u]) ≤ H * (1 - model[:yˡₛᵣₖₜ][l, s, r, k, t])
     )
 
-    for t ∈ T[1:end-1]
-        JuMP.@constraint(model, gᴴᶜ[t] ≤ gᴴᶜ[t+1])
+    for i in 1:length(T[1:end-1])
+        t = T[i]
+        t_next = T[i+1]
+        JuMP.@constraint(model, gᴴᶜ[t] ≤ gᴴᶜ[t_next])
     end
 
 
