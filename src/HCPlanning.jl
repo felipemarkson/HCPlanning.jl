@@ -150,30 +150,58 @@ function get_ci(model)
     return JuMP.value(model[:ci])
 end
 
+function fixing_binaries!(model)
+    variables = []
+    values = []
+    for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ,:yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
+        for key in eachindex(model[sym])
+            variable = model[sym][key]
+            value = JuMP.value(variable)
+            push!(variables, variable)
+            push!(values, value)    
+        end
+    end
+    JuMP.unset_binary.(variables)   
+    JuMP.fix.(variables, values)
+end
+
+function unfixing_binaries!(model)
+    for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ,:yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
+        for key in eachindex(model[sym])
+            variable = model[sym][key]     
+            JuMP.unfix(variable)
+            JuMP.set_binary(variable)
+        end
+    end
+end
 
 function calc_ctpv(model, x, x_init)
     ci_fix = get_ci(model)
     hc_fix = get_hc(model)
-    JuMP.@constraint(model, ci_constraint, model[:ci] <= ci_fix)
+    # fixing_binaries!(model)
+    # JuMP.@constraint(model, ci_constraint, model[:ci] <= ci_fix)
     JuMP.@constraint(model, hc_constraint, model[:hc] >= hc_fix)
     set_cptv_obj(model)
     sol = run_optimizer!(model, x, x_init)
     ctpv = get_ctpv(model)
     remove(model, :hc_constraint)
-    remove(model, :ci_constraint)
+    # remove(model, :ci_constraint)
+    # unfixing_binaries!(model)
     return sol, ctpv
 end
 
 function calc_hc(model, x, x_init)
     ci_fix = get_ci(model)
     ctpv_fix = get_ctpv(model)
-    JuMP.@constraint(model, ci_constraint, model[:ci] <= ci_fix)
+    fixing_binaries!(model)
+    # JuMP.@constraint(model, ci_constraint, model[:ci] <= ci_fix)
     JuMP.@constraint(model, ctpv_constraint, model[:cᵀᴾⱽ] <= ctpv_fix)
     set_hc_obj(model)
     sol = run_optimizer!(model, x, x_init)
     hc = get_hc(model)
     remove(model, :ctpv_constraint)
-    remove(model, :ci_constraint)
+    # remove(model, :ci_constraint)
+    unfixing_binaries!(model)
     return sol, hc
 end
 
