@@ -23,8 +23,7 @@ function logg(msg)
 end
 
 function solve_small!(model_big, path2small)
-    model = HCP.build_model(path2small)
-    JuMP.set_optimizer(model, Gurobi.Optimizer)
+    model = HCP.build_model(path2small, Gurobi.Optimizer)
     JuMP.set_silent(model)
     JuMP.set_optimizer_attribute(model, "Presolve", 2)
     JuMP.set_optimizer_attribute(model, "MIPGap", 1e-6)
@@ -48,10 +47,9 @@ function config_solver!(model)
 end
 
 logg("Start!")
-path2main = "data/138bus_4stages"
-path2small = "data/138bus_1stage/"
-model = HCP.build_model(path2main)
-JuMP.set_optimizer(model, Gurobi.Optimizer)
+path2main = "data/24bus"
+path2small = "data/24bus_1stage/"
+model = HCP.build_model(path2main, Gurobi.Optimizer)
 HCP.set_hc_obj(model)
 # JuMP.set_silent(model)
 x = JuMP.all_variables(model)
@@ -69,7 +67,7 @@ logg("Pareto 0| HC: $hc_hc")
 
 sol_hc, ctpv_hc = HCP.calc_ctpv(model, x, sol_hc)
 logg("Pareto 0 | CTPV: $ctpv_hc")
-end
+
 # # Change the objective function 
 logg("Starting the Pareto!")
 ε = 1000

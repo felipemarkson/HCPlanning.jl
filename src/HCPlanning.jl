@@ -3,8 +3,8 @@ using JuMP
 import MunozDelgado2014
 MD14 = MunozDelgado2014
 
-function build_model(path2main)
-    model = MD14.build_model(path2main)
+function build_model(path2main, optimizer)
+    model = MD14.build_model(path2main, optimizer; is_direct=true)
     include(path2main * "/main.jl")
     αᴴᶜ = [-1, 1]
     Sᴴᶜ = [1, 2]
