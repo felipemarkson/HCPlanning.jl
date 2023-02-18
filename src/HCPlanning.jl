@@ -104,6 +104,12 @@ function build_model(path2main, optimizer)
     # JuMP.@constraint(model, hc_constraint, hc ≥ 0)
     JuMP.@expression(model, ci, sum(model[:cᴵₜ][t] * ((1 + i)^-t) / i for t in T))
 
+    #For Multi-Obj
+    JuMP.@variable(model, hc_var ≥ 0)
+    JuMP.@variable(model, ctpv_var ≥ 0)
+    JuMP.@constraint(model, hc_var <= hc)
+    JuMP.@constraint(model, ctpv_var >= model[:cᵀᴾⱽ])
+
     return model
 end
 
@@ -117,6 +123,25 @@ end
 
 function set_hc_obj(model, weight_ctpv=0)
     set_bi_obj(model, weight_ctpv, 1)
+end
+
+function set_mult_objective(model, gurobi)
+    
+    set_hc_obj(model)
+
+    ctpv_index = JuMP.index(model[:ctpv_var])
+
+    #Get this code from tests of Gurobi.jl
+    f = MOI.ScalarAffineFunction(
+        [MOI.ScalarAffineTerm(-1e-9, ctpv_index)],
+        0.0,
+    )
+    
+    MOI.set(model, gurobi.MultiObjectiveFunction(2), f)
+
+
+    MOI.set(model, gurobi.MultiObjectivePriority(1), 10)
+    MOI.set(model, gurobi.MultiObjectivePriority(2), 1)
 end
 
 function remove(model, symbol)
@@ -153,22 +178,22 @@ end
 function fixing_binaries!(model)
     variables = []
     values = []
-    for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ,:yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
+    for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ, :yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
         for key in eachindex(model[sym])
             variable = model[sym][key]
             value = JuMP.value(variable)
             push!(variables, variable)
-            push!(values, value)    
+            push!(values, value)
         end
     end
-    JuMP.unset_binary.(variables)   
+    JuMP.unset_binary.(variables)
     JuMP.fix.(variables, values)
 end
 
 function unfixing_binaries!(model)
-    for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ,:yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
+    for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ, :yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
         for key in eachindex(model[sym])
-            variable = model[sym][key]     
+            variable = model[sym][key]
             JuMP.unfix(variable)
             JuMP.set_binary(variable)
         end
