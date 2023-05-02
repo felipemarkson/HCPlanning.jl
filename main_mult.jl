@@ -14,7 +14,7 @@ GRB_BESTBOUND = 3
 
 
 date_format = "yyyy-mm-dd HH:MM:SS"
-logger = FileLogger("info_mult_138_both.log")
+logger = FileLogger("info_mult_138_both_continue.log")
 function logg(msg)
     with_logger(logger) do
         end_msg = "[ $(now()) ] " * msg
@@ -27,7 +27,6 @@ function solve_small!(model_big, path2small)
     JuMP.set_silent(model)
     JuMP.set_optimizer_attribute(model, "Presolve", 2)
     JuMP.set_optimizer_attribute(model, "MIPGap", 1e-6)
-    # JuMP.set_optimizer_attribute(model, "MIPFocus", 1)
     x_small = JuMP.all_variables(model)
     HCP.set_hc_obj(model)
     _ = HCP.run_optimizer!(model, x_small)
@@ -45,6 +44,7 @@ function config_solver!(model)
     JuMP.set_optimizer_attribute(model, "MIPGap", 1e-6)
     JuMP.set_optimizer_attribute(model, "Presolve", 2)
     JuMP.set_optimizer_attribute(model, "NumericFocus", 3)
+    JuMP.set_optimizer_attribute(model, "NodefileStart", 0.5)
 end
 
 logg("Start!")
@@ -60,13 +60,16 @@ solve_small!(model, path2small)
 logg("Small Solved!")
 
 # Optimize to HC
-sol_hc = HCP.run_optimizer!(model, x)
+sol_hc = nothing
+# sol_hc = HCP.run_optimizer!(model, x)
 
-hc_hc = HCP.get_hc(model)
-logg("Pareto 0| HC: $hc_hc")
 
-ctpv_hc = HCP.get_ctpv(model)
-logg("Pareto 0 | CTPV: $ctpv_hc")
+# hc_hc = HCP.get_hc(model)
+# logg("Pareto 0| HC: $hc_hc")
+
+ctpv_hc = 1.6546231989344028e8 # last
+# ctpv_hc = HCP.get_ctpv(model)
+# logg("Pareto 0 | CTPV: $ctpv_hc")
 
 # Change the objective function 
 logg("Starting the Pareto!")
@@ -74,13 +77,17 @@ logg("Starting the Pareto!")
 
 while true
     HCP.add_cptv_limit(model, ctpv_hc - ε)
-    global sol_hc = HCP.run_optimizer!(model, x, sol_hc)
+    if isnothing(sol_hc)
+        global sol_hc = HCP.run_optimizer!(model, x)
+    else
+        global sol_hc = HCP.run_optimizer!(model, x, sol_hc)
+    end
 
     hc = HCP.get_hc(model)
     logg("Pareto | HC: $hc")
 
     global ctpv_hc = HCP.get_ctpv(model)
     logg("Pareto | CTPV: $ctpv_hc")
-    
+
 end
 end

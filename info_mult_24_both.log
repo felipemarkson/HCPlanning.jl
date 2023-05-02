@@ -1,0 +1,38 @@
+┌ Info: [ 2023-02-18T18:18:46.192 ] Start!
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:19:47.502 ] Small Solved!
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:21:04.422 ] Pareto 0| HC: 0.7678571428601961
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:21:04.430 ] Pareto 0 | CTPV: 2.818394049045305e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:21:04.430 ] Starting the Pareto!
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:25:45.667 ] Pareto | HC: 0.6639983360011791
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:25:45.671 ] Pareto | CTPV: 2.796355271711811e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:30:54.259 ] Pareto | HC: 0.6359983640012833
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:30:54.269 ] Pareto | CTPV: 2.79254893746247e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:37:35.643 ] Pareto | HC: 0.4499988688916474
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:37:35.648 ] Pareto | CTPV: 2.7458666639020354e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:44:27.836 ] Pareto | HC: 0.38999768333331497
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T18:44:27.842 ] Pareto | CTPV: 2.7394130123535347e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T19:03:36.144 ] Pareto | HC: 0.15428571428571447
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T19:03:36.149 ] Pareto | CTPV: 2.7372349026421064e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T19:15:15.158 ] Pareto | HC: 0.14249892644239853
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T19:15:15.163 ] Pareto | CTPV: 2.7345517165565217e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T19:27:05.464 ] Pareto | HC: 0.017142857142857064
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-02-18T19:27:05.471 ] Pareto | CTPV: 2.692659530543573e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
