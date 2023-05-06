@@ -240,6 +240,15 @@ function add_cptv_limit(model, rhs)
     JuMP.@constraint(model, ctpv_constraint, model[:cᵀᴾⱽ] ≤ rhs)
 end
 
+function add_hc_limit(model, rhs)
+    try
+        remove(model, :hc_constraint)
+    catch e
+        nothing
+    end
+    JuMP.@constraint(model, hc_constraint, model[:hc] ≤ rhs)
+end
+
 function out_integer_solutions(model, name)
     hc = get_hc(model)
     ctpv_hc = get_ctpv(model)

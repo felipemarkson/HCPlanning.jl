@@ -8,7 +8,7 @@ begin
     MOI = JuMP.MOI
 
 
-    sys = 24 # 138
+    sys = 138 # 138
     ctpv_hc = 5e8 # INITIAL (must be a bigger value)
 
     path2main = nothing
@@ -25,7 +25,7 @@ begin
         path2main = "data/138bus_4stages/"
         path2small = "data/138bus_1stage/"
         sol_name = "138_bus_both"
-        logger = FileLogger("info_mult_138.log")
+        logger = FileLogger("info_mult_138_both.log")
     else
         throw(InvalidStateException("Not implemented!", sys))
     end
@@ -78,6 +78,7 @@ begin
     sol_hc = nothing
     # Change the objective function 
     logg("Starting the Pareto!")
+    hc = nothing
     ε = 450.0 # The least solution
     count = 1
     while true
@@ -85,10 +86,11 @@ begin
         if isnothing(sol_hc)
             global sol_hc = HCP.run_optimizer!(model, x)
         else
+            HCP.add_hc_limit(model, hc)
             global sol_hc = HCP.run_optimizer!(model, x, sol_hc)
         end
 
-        hc = HCP.get_hc(model)
+        global hc = HCP.get_hc(model)
         logg("Pareto | HC: $hc")
 
         global ctpv_hc = HCP.get_ctpv(model)
