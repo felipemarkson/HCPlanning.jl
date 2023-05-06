@@ -49,3 +49,9 @@
 └ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
 ┌ Info: [ 2023-03-17T14:32:06.014 ] Pareto | CTPV: 1.6546231989344028e8
 └ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+
+-------------------------------------------------------------------
+┌ Info: [ 2023-04-17T13:02:02.839 ] Pareto | HC: 0.187303721786
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
+┌ Info: [ 2023-04-17T13:02:02.862 ] Pareto | CTPV: 1.6545987843499333e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:21
