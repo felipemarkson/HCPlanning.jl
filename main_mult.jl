@@ -8,7 +8,7 @@ begin
     MOI = JuMP.MOI
 
 
-    sys = 138 # 138
+    sys = 24 # 138
     ctpv_hc = 5e8 # INITIAL (must be a bigger value)
 
     path2main = nothing
@@ -45,7 +45,6 @@ begin
         JuMP.set_optimizer_attribute(model, "Presolve", 2)
         JuMP.set_optimizer_attribute(model, "IntegralityFocus", 1)
         JuMP.set_optimizer_attribute(model, "NumericFocus", 3)
-        JuMP.set_optimizer_attribute(model, "Method", 5)
     end
 
     function solve_small!(model_big, path)
