@@ -57,7 +57,7 @@ solve_small!(model, path2small)
 logg("Small Solved!")
 
 sol_hc = nothing
-ctpv_hc = 1.75e8 # INITIAL (must be a bigger value)
+ctpv_hc = 3e8 # INITIAL (must be a bigger value)
 
 # Change the objective function 
 logg("Starting the Pareto!")
