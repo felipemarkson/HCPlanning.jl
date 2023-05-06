@@ -240,4 +240,27 @@ function add_cptv_limit(model, rhs)
     JuMP.@constraint(model, ctpv_constraint, model[:cᵀᴾⱽ] ≤ rhs)
 end
 
+function out_integer_solutions(model, name)
+    hc = get_hc(model)
+    ctpv_hc = get_ctpv(model)
+    open("solutions/$name.jump_sol", "w") do io
+        println(io, "HC: ", hc)
+        println(io, "CTPV: ", ctpv_hc)
+        print(io, "\n")
+        for sym in [:xˡₛᵣₖₜ, :xˢˢₛₜ, :xᴺᵀₛₖₜ, :xᵖₛₖₜ, :yˡₛᵣₖₜ, :yᵖₛₖₜ, :yᵗʳₛₖₜ]
+            println(io, sym, ":")
+            for key in eachindex(model[sym])
+                value = JuMP.value(model[sym][key])
+                str_label = ""
+                for k in Tuple(key)
+                    str_label = str_label*"$k,"
+                end
+                print(io, str_label[1:end-1], ":")
+                println(io, Int(value), ";")
+            end
+            print(io, "\n")
+        end
+    end
+end
+
 end # module
