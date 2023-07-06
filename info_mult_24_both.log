@@ -1,38 +1,46 @@
-┌ Info: [ 2023-05-06T12:54:20.656 ] Start!
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T12:55:26.251 ] Small Solved!
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T12:55:26.251 ] Starting the Pareto!
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T12:57:09.956 ] Pareto | HC: 0.7678553750030532
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T12:57:09.963 ] Pareto | CTPV: 2.818394049045309e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T12:59:45.666 ] Pareto | HC: 0.663998336001277
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T12:59:45.670 ] Pareto | CTPV: 2.7963552717118114e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:01:58.032 ] Pareto | HC: 0.6359983640012762
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:01:58.036 ] Pareto | CTPV: 2.792548937462504e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:07:32.079 ] Pareto | HC: 0.4499985500000002
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:07:32.084 ] Pareto | CTPV: 2.7458666639020354e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:15:18.304 ] Pareto | HC: 0.3899986099999988
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:15:18.310 ] Pareto | CTPV: 2.7394130123535347e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:25:08.366 ] Pareto | HC: 0.15428455999999985
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:25:08.370 ] Pareto | CTPV: 2.7372349026421064e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:34:43.706 ] Pareto | HC: 0.14249885749999988
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:34:43.712 ] Pareto | CTPV: 2.734551716556521e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:41:44.165 ] Pareto | HC: 0.017142857142857064
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
-┌ Info: [ 2023-05-06T13:41:44.168 ] Pareto | CTPV: 2.692659530543573e8
-└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:39
+┌ Info: [ 2023-07-05T08:36:32.739 ] Start!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T08:36:50.201 ] Small Solved!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T08:36:50.201 ] Starting the Pareto!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T10:05:48.384 ] Pareto | HC: 0.7839982160072677
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T10:05:48.391 ] Pareto | CTPV: 2.5165023534815335e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T11:31:02.218 ] Pareto | HC: 0.6726649940016747
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T11:31:02.221 ] Pareto | CTPV: 2.5136935196333286e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T12:02:04.167 ] Pareto | HC: 0.6359983640016749
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T12:02:04.169 ] Pareto | CTPV: 2.5066265182283887e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T12:29:51.253 ] Pareto | HC: 0.5199984799999998
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T12:29:51.256 ] Pareto | CTPV: 2.5064656505468234e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T13:09:14.761 ] Pareto | HC: 0.45225854774000057
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T13:09:14.764 ] Pareto | CTPV: 2.5061507967874074e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T14:46:10.320 ] Pareto | HC: 0.2799987199999987
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T14:46:10.322 ] Pareto | CTPV: 2.5037445485339054e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T15:18:10.335 ] Pareto | HC: 0.27999744000127874
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T15:18:10.339 ] Pareto | CTPV: 2.503661235756745e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T17:01:09.454 ] Pareto | HC: 0.2649999999999988
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T17:01:09.456 ] Pareto | CTPV: 2.503030818497423e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T20:21:46.588 ] Pareto | HC: 0.11999887999999967
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T20:21:46.591 ] Pareto | CTPV: 2.5028660697128335e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T22:24:07.450 ] Pareto | HC: 0.025713259999998975
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-07-05T22:24:07.453 ] Pareto | CTPV: 2.5027464760148284e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
