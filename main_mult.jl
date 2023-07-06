@@ -26,6 +26,11 @@ begin
         path2small = "data/138bus_1stage/"
         sol_name = "138_bus_both"
         logger = FileLogger("info_mult_138_both.log")
+    elseif sys == 54
+        path2main = "data/54bus/"
+        path2small = "data/54bus_1stage/"
+        sol_name = "54_bus_both"
+        logger = FileLogger("info_mult_54_both.log")
     else
         throw(InvalidStateException("Not implemented!", sys))
     end
