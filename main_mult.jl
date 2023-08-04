@@ -8,7 +8,7 @@ begin
     MOI = JuMP.MOI
 
 
-    sys = 24 # 138
+    sys = 54 # 138
     ctpv_hc = 5e8 # INITIAL (must be a bigger value)
 
     path2main = nothing
@@ -22,12 +22,12 @@ begin
         sol_name = "24_bus_both"
         logger = FileLogger("info_mult_24_both.log")
     elseif sys == 138
-        path2main = "data/138bus_4stages/"
+        path2main = "data/138bus_5stages/"
         path2small = "data/138bus_1stage/"
         sol_name = "138_bus_both"
         logger = FileLogger("info_mult_138_both.log")
     elseif sys == 54
-        path2main = "data/54bus/"
+        path2main = "data/54bus_5stages/"
         path2small = "data/54bus_1stage/"
         sol_name = "54_bus_both"
         logger = FileLogger("info_mult_54_both.log")
