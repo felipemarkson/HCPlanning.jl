@@ -8,7 +8,7 @@ begin
     MOI = JuMP.MOI
 
 
-    sys = 54 # 138
+    sys = 24 # 138
     ctpv_hc = 5e8 # INITIAL (must be a bigger value)
 
     path2main = nothing

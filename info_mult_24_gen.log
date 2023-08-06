@@ -1,0 +1,14 @@
+┌ Info: [ 2023-08-04T11:00:52.944 ] Start!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-08-04T11:01:24.753 ] Small Solved!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-08-04T11:01:24.753 ] Starting the Pareto!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-08-04T11:16:30.549 ] Pareto | HC: 0.7839982160057329
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-08-04T11:16:30.556 ] Pareto | CTPV: 2.5029226215323737e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-08-04T11:49:44.744 ] Pareto | HC: 0.45225854774000057
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
+┌ Info: [ 2023-08-04T11:49:44.746 ] Pareto | CTPV: 2.502748365416817e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:44
