@@ -10,6 +10,7 @@ begin
 
     sys = 24 # 138
     ctpv_hc = 5e8 # INITIAL (must be a bigger value)
+    mode = HCP.both
 
     path2main = nothing
     path2small = nothing
@@ -19,18 +20,18 @@ begin
     if sys == 24
         path2main = "data/24bus/" #"data/138bus_4stages/"
         path2small = "data/24bus_1stage/"
-        sol_name = "24_bus_both"
-        logger = FileLogger("info_mult_24_both.log")
+        sol_name = "24_bus_$mode"
+        logger = FileLogger("info_mult_24_$mode.log")
     elseif sys == 138
         path2main = "data/138bus_5stages/"
         path2small = "data/138bus_1stage/"
-        sol_name = "138_bus_both"
-        logger = FileLogger("info_mult_138_both.log")
+        sol_name = "138_bus_$mode"
+        logger = FileLogger("info_mult_138_$mode.log")
     elseif sys == 54
         path2main = "data/54bus_5stages/"
         path2small = "data/54bus_1stage/"
-        sol_name = "54_bus_both"
-        logger = FileLogger("info_mult_54_both.log")
+        sol_name = "54_bus_$mode"
+        logger = FileLogger("info_mult_54_$mode.log")
     else
         throw(InvalidStateException("Not implemented!", sys))
     end
@@ -53,7 +54,7 @@ begin
     end
 
     function solve_small!(model_big, path)
-        model = HCP.build_model(path, Gurobi.Optimizer)
+        model = HCP.build_model(path, Gurobi.Optimizer; mode=mode)
         JuMP.set_silent(model)
         config_solver!(model)
         x_small = JuMP.all_variables(model)
@@ -70,7 +71,7 @@ begin
     end
 
     logg("Start!")
-    model = HCP.build_model(path2main, Gurobi.Optimizer)
+    model = HCP.build_model(path2main, Gurobi.Optimizer; mode=mode)
     HCP.set_mult_objective(model, Gurobi)
     x = JuMP.all_variables(model)
     config_solver!(model)
@@ -83,7 +84,7 @@ begin
     # Change the objective function 
     logg("Starting the Pareto!")
     hc = nothing
-    ε = 450.0 # The least solution
+    ε = 450.0
     count = 1
     while true
         HCP.add_cptv_limit(model, ctpv_hc - ε)

@@ -1,12 +1,26 @@
 module HCPlanning
+include("SolutionQuery.jl")
 using JuMP
 import MunozDelgado2014
 MD14 = MunozDelgado2014
 
-function build_model(path2main, optimizer)
+@enum ModelMode both ev gen
+
+function build_model(path2main, optimizer; mode=both)
     model = MD14.build_model(path2main, optimizer; is_direct=true)
     include(path2main * "/main.jl")
-    αᴴᶜ = [-1, 1]
+    αᴴᶜ =[]
+    if mode == both
+        αᴴᶜ = [-1, 1]
+    elseif mode == ev
+        αᴴᶜ = [-1, 0]
+    elseif mode == gen
+        αᴴᶜ = [0, 1]
+    else
+        throw("Mode $mode is not implemented!")
+    end
+    
+    
     Sᴴᶜ = [1, 2]
 
     Sᴿᵂ = [1, 2]
