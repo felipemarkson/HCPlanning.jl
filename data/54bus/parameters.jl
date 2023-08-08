@@ -156,7 +156,7 @@ H = V̅ - V_  #Ref: DOI: 10.1109/TPWRS.2017.2764331
 # Assets Data
 i = 10 / 100
 
-IBₜ = Dict([t => 3.5e6 for t in T])
+IBₜ = Dict([t => 12e6 for t in T])
 
 ηˡ = Dict(
     "NRF" => 25,
