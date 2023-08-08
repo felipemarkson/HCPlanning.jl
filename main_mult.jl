@@ -8,8 +8,8 @@ begin
     MOI = JuMP.MOI
 
 
-    sys = 24 # 138
-    ctpv_hc = 5e8 # INITIAL (must be a bigger value)
+    sys = 54 # 138
+    ctpv_hc = 10e8 # INITIAL (must be a bigger value)
     mode = HCP.both
 
     path2main = nothing
@@ -22,13 +22,8 @@ begin
         path2small = "data/24bus_1stage/"
         sol_name = "24_bus_$mode"
         logger = FileLogger("info_mult_24_$mode.log")
-    elseif sys == 138
-        path2main = "data/138bus_5stages/"
-        path2small = "data/138bus_1stage/"
-        sol_name = "138_bus_$mode"
-        logger = FileLogger("info_mult_138_$mode.log")
     elseif sys == 54
-        path2main = "data/54bus_5stages/"
+        path2main = "data/54bus_3stages/"
         path2small = "data/54bus_1stage/"
         sol_name = "54_bus_$mode"
         logger = FileLogger("info_mult_54_$mode.log")
@@ -48,14 +43,14 @@ begin
 
     function config_solver!(model)
         JuMP.set_optimizer_attribute(model, "MIPGap", 1e-6)
-        JuMP.set_optimizer_attribute(model, "Presolve", 2)
+        #JuMP.set_optimizer_attribute(model, "Presolve", 2)
         JuMP.set_optimizer_attribute(model, "IntegralityFocus", 1)
-        JuMP.set_optimizer_attribute(model, "NumericFocus", 3)
+        #JuMP.set_optimizer_attribute(model, "NumericFocus", 3)
     end
 
     function solve_small!(model_big, path)
         model = HCP.build_model(path, Gurobi.Optimizer; mode=mode)
-        JuMP.set_silent(model)
+        #JuMP.set_silent(model)
         config_solver!(model)
         x_small = JuMP.all_variables(model)
         HCP.set_hc_obj(model)
