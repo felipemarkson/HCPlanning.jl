@@ -1,0 +1,118 @@
+┌ Info: [ 2023-09-04T18:46:13.938 ] Start!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:47:40.961 ] MIN CTPV: 1.170719646754249e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:47:41.031 ] Starting the Pareto!
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:48:19.210 ] Pareto | HC: 0.06890495849123286
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:48:19.213 ] Pareto | CTPV: 1.2235081135066393e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:51:13.099 ] Pareto | HC: 0.06880635488022559
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:51:13.102 ] Pareto | CTPV: 1.2234986817952308e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:56:45.866 ] Pareto | HC: 0.06870966666666666
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T18:56:45.869 ] Pareto | CTPV: 1.2234749855686665e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:12:43.995 ] Pareto | HC: 0.068698
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:12:43.998 ] Pareto | CTPV: 1.189983952935186e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:15:49.701 ] Pareto | HC: 0.06733897058823529
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:15:49.704 ] Pareto | CTPV: 1.1884439552867894e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:23:18.444 ] Pareto | HC: 0.0672448484848497
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:23:18.447 ] Pareto | CTPV: 1.1884391794833909e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:26:29.097 ] Pareto | HC: 0.06592041666666666
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:26:29.100 ] Pareto | CTPV: 1.1880431421343559e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:30:38.241 ] Pareto | HC: 0.06437899999999999
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:30:38.245 ] Pareto | CTPV: 1.1844488675981824e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:33:51.095 ] Pareto | HC: 0.058126176470589416
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:33:51.098 ] Pareto | CTPV: 1.1841303902165452e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:46:18.419 ] Pareto | HC: 0.05478731666666668
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:46:18.421 ] Pareto | CTPV: 1.1839098439187369e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:56:27.614 ] Pareto | HC: 0.051929354838709675
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T19:56:27.617 ] Pareto | CTPV: 1.183892854494232e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T20:07:31.514 ] Pareto | HC: 0.0501655
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T20:07:31.517 ] Pareto | CTPV: 1.1832516006745578e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T20:27:43.624 ] Pareto | HC: 0.046563611111111104
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T20:27:43.627 ] Pareto | CTPV: 1.1811082876551934e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T20:52:39.812 ] Pareto | HC: 0.045087000000058684
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T20:52:39.815 ] Pareto | CTPV: 1.1800719531707944e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T21:40:52.214 ] Pareto | HC: 0.04319292307692307
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T21:40:52.217 ] Pareto | CTPV: 1.1795819649262793e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T22:36:18.480 ] Pareto | HC: 0.04069924242424242
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T22:36:18.483 ] Pareto | CTPV: 1.1794151958016795e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T23:16:34.410 ] Pareto | HC: 0.03954350590999999
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T23:16:34.412 ] Pareto | CTPV: 1.1767025370864494e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T23:31:23.235 ] Pareto | HC: 0.03799298507462686
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T23:31:23.238 ] Pareto | CTPV: 1.1757442396790013e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T23:45:46.907 ] Pareto | HC: 0.03631730476190478
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-04T23:45:46.910 ] Pareto | CTPV: 1.1756261921311536e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T00:41:17.499 ] Pareto | HC: 0.03564911764705882
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T00:41:17.501 ] Pareto | CTPV: 1.1754594230065538e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T00:58:29.239 ] Pareto | HC: 0.03252312499999999
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T00:58:29.242 ] Pareto | CTPV: 1.1753138252870424e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T01:24:48.481 ] Pareto | HC: 0.030155230769230764
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T01:24:48.483 ] Pareto | CTPV: 1.1751470561624426e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T02:18:34.553 ] Pareto | HC: 0.027778972219999996
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T02:18:34.556 ] Pareto | CTPV: 1.1746761692200068e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T02:37:05.957 ] Pareto | HC: 0.02754491803278688
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T02:37:05.960 ] Pareto | CTPV: 1.1743517962589163e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T03:24:02.620 ] Pareto | HC: 0.026443913043478255
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T03:24:02.623 ] Pareto | CTPV: 1.1737178718125595e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T03:53:38.796 ] Pareto | HC: 0.02200573474999999
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T03:53:38.798 ] Pareto | CTPV: 1.173405504968448e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T04:40:12.937 ] Pareto | HC: 0.017814999999999998
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T04:40:12.939 ] Pareto | CTPV: 1.1730313657269591e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T06:31:31.640 ] Pareto | HC: 0.01750449275362318
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T06:31:31.642 ] Pareto | CTPV: 1.1729711932978338e8
+└ @ Main /home/felipe/projetos/HCPlanning.jl/main_mult.jl:45

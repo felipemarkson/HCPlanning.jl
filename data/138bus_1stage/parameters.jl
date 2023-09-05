@@ -1,22 +1,21 @@
 include("sets.jl")
 include("wind.jl")
-include("solar.jl")
 
 #Energy Costs
-Cᴱᵖₖ = Dict("C" => [47, 45], "W" => [0, 0], "PV" => [0, 0])
+Cᴱᵖₖ = Dict("C" => [47, 45], "W" => [0, 0])
 
-Cˢˢᵦ = [225.33, 182.72, 154.43, 81.62]
+Cˢˢᵦ = [57.7, 70, 85.3]
 
-Cᵁ = 20000 # This value was changed because 1% gap can present unserved energy
+Cᵁ = 20000 # This value was changed because 1% gap can present unserved energ
 
 #Investment Costs
-Cᴵˡₖ = Dict("NRF" => [19140, 29870], "NAF" => [15020, 25030])
+Cᴵˡₖ = Dict("NRF" => [29870, 39310], "NAF" => [25030, 34920])
 
-Cᴵᴺᵀₖ = [750e3, 950e3]
+Cᴵᴺᵀₖ = [500e3, 950e3]
 
-Cᴵᵖₖ = Dict("C" => [500e3, 490e3], "W" => [185e3, 184e3], "PV" => [172e3, 171e3])
+Cᴵᵖₖ = Dict("C" => [500e3, 490e3], "W" => [1850e3, 1840e3])
 
-Cᴵˢˢₛ = Dict(51 => 100e3, 52 => 100e3, 53 => 150e3, 54 => 150e3)
+Cᴵˢˢₛ = Dict(136 => 100e3, 137 => 100e3, 138 => 150e3)
 
 #Maintenance Costs
 Cᴹˡₖ = Dict(
@@ -26,22 +25,22 @@ Cᴹˡₖ = Dict(
     "NAF" => [450, 450],
 )
 
-Cᴹᵖₖ = Dict( #0.05*Cᴵᵖₖ
-    "C" => [25e3, 24.5e3],
-    "W" => [9250, 9200],
-    "PV" => [8600, 8550],
+Cᴹᵖₖ = Dict( #0.05*Cᴵᵖₖ*Gᵖₖ
+    "C" => [22.5e3, 44.1e3],
+    "W" => [75757.5, 169740],
 )
 
 
-Cᴹᵗʳₖ = Dict( #0.05*Cᴵᵖₖ
+Cᴹᵗʳₖ = Dict( #0.05*Cᴵᵖₖ*Gᵖₖ
     "ET" => [2000],
-    "NT" => [2000, 3000],
+    "NT" => [1000, 3000],
 )
 
 # System's Data
 
 Dₛₜ = SystemData.peak_demand
 
+# D̃ₛₜ = OffsetArray(zeros(length(Ωᴺ), length(T)), Ωᴺ, T[1]:T[end])
 D̃ₛₜ = Dict([s => Dict([t => 0.0 for t in T]) for s in Ωᴺ])
 
 D̃ = 0.1
@@ -64,7 +63,7 @@ F̅ˡₖ = Dict(
 )
 
 G̅ᴰₚₖ = Dict("C" => [1, 2])
-G̅ᴿᵂₚₖ = Dict("W" => [0.91, 2.05], "PV" => [0.7, 1.65])
+G̅ᴿᵂₚₖ = Dict("W" => [0.91, 2.05])
 
 # Ĝᵂₛₖₜᵦ = zeros(length(Ωᴺ), length(Kᵖ["W"]), length(T), length(B))
 Ĝᴿᵂₚₛₖₜᵦ =
@@ -75,7 +74,7 @@ Ĝᴿᵂₚₛₖₜᵦ =
                     Dict([b => 0.0
                           for b in B])
                       for t in T])
-                  for k in [Kᵖ["W"]; Kᵖ["PV"]]])
+                  for k in Kᵖ["W"]])
               for s in Ωᴺ])
           for p in RW])
 # begin
@@ -99,7 +98,7 @@ Ĝᴿᵂₚₛₖₜᵦ =
 #     end
 # end
 
-# Version 2 WIND
+# Version 2
 begin
     # Ref: https://wind-turbine.com/download/101655/enercon_produkt_en_06_2015.pdf
     for s = Ωᴺ
@@ -115,25 +114,9 @@ begin
     end
 end
 
-# Solar
-begin
-    # Ref: https://wind-turbine.com/download/101655/enercon_produkt_en_06_2015.pdf
-    for s = Ωᴺ
-        for k in Kᵖ["PV"]
-            for t in T
-                for b in B
-                    zone = SystemData.node_zone[s]
-                    irradiation = SystemData.solar_irradiation[zone, b]
-                    Ĝᴿᵂₚₛₖₜᵦ["PV"][s][k][t][b] = solar_power_out(k, irradiation)
-                end
-            end
-        end
-    end
-end
+G̅ᵗʳₖ = Dict("ET" => [12], "NT" => [7.5, 15])
 
-G̅ᵗʳₖ = Dict("ET" => [12], "NT" => [12, 15])
-
-Vbase = 13.5 #kV
+Vbase = 13.8 #kV
 V_ = 0.95 * Vbase
 V̅ = 1.05 * Vbase
 Vˢˢ = 1.05 * Vbase
@@ -154,7 +137,7 @@ pf = 0.9
 H = V̅ - V_  #Ref: DOI: 10.1109/TPWRS.2017.2764331
 
 # Assets Data
-i = 10 / 100
+i = 7.1 / 100
 
 IBₜ = Dict([t => 100e8 for t in T])
 
@@ -167,8 +150,7 @@ IBₜ = Dict([t => 100e8 for t in T])
 
 ηᵖ = Dict(
     "C" => 20,
-    "W" => 20,
-    "PV" => 20,
+    "W" => 20
 )
 
 ηˢˢ = 100
@@ -182,8 +164,7 @@ RRᴺᵀ = (i * (1 + i)^ηᴺᵀ) / ((1 + i)^ηᴺᵀ - 1)
 
 RRᵖ = Dict(
     "C" => (i * (1 + i)^ηᵖ["C"]) / ((1 + i)^ηᵖ["C"] - 1),
-    "W" => (i * (1 + i)^ηᵖ["W"]) / ((1 + i)^ηᵖ["W"] - 1),
-    "PV" => (i * (1 + i)^ηᵖ["PV"]) / ((1 + i)^ηᵖ["PV"] - 1),
+    "W" => (i * (1 + i)^ηᵖ["W"]) / ((1 + i)^ηᵖ["W"] - 1)
 )
 
 RRˢˢ = i
@@ -197,10 +178,10 @@ Zˡₖ = Dict(
 
 Zᵗʳₖ = Dict(
     "ET" => [0.16],
-    "NT" => [0.16, 0.13]
+    "NT" => [0.25, 0.13]
 )
 
-Δᵦ = [350, 2650, 3900, 1860] # [2000, 5760, 1000]
+Δᵦ = [2000, 5760, 1000]
 
 μᵦ = SystemData.load_factor
 

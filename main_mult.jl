@@ -8,8 +8,8 @@ begin
     MOI = JuMP.MOI
 
 
-    sys = 54 # 138
-    ctpv_hc = 10e8 # INITIAL (must be a bigger value)
+    sys = 138
+    ctpv_hc = 100e8 # INITIAL (must be a bigger value)
     mode = HCP.both
 
     path2main = nothing
@@ -23,10 +23,15 @@ begin
         sol_name = "24_bus_$mode"
         logger = FileLogger("info_mult_24_$mode.log")
     elseif sys == 54
-        path2main = "data/54bus_3stages/"
+        path2main = "data/54bus_1stage/"
         path2small = "data/54bus_1stage/"
         sol_name = "54_bus_$mode"
         logger = FileLogger("info_mult_54_$mode.log")
+    elseif sys == 138
+        path2main = "data/138bus_1stage/"
+        path2small = "data/138bus_1stage/"
+        sol_name = "138_bus_$mode"
+        logger = FileLogger("info_mult_138_$mode.log")
     else
         throw(InvalidStateException("Not implemented!", sys))
     end
@@ -43,9 +48,9 @@ begin
 
     function config_solver!(model)
         JuMP.set_optimizer_attribute(model, "MIPGap", 1e-6)
-        #JuMP.set_optimizer_attribute(model, "Presolve", 2)
+        JuMP.set_optimizer_attribute(model, "Presolve", 2)
         JuMP.set_optimizer_attribute(model, "IntegralityFocus", 1)
-        #JuMP.set_optimizer_attribute(model, "NumericFocus", 3)
+        JuMP.set_optimizer_attribute(model, "NumericFocus", 3)
     end
 
     function solve_small!(model_big, path)
@@ -67,21 +72,27 @@ begin
 
     logg("Start!")
     model = HCP.build_model(path2main, Gurobi.Optimizer; mode=mode)
+    x = JuMP.all_variables(model)
+
+    HCP.set_cptv_obj(model)
+    config_solver!(model)
+    _ = HCP.run_optimizer!(model, x)
+    ctpv_hc_min = HCP.get_ctpv(model) 
+    logg("MIN CTPV: $ctpv_hc_min")
+    
     HCP.set_mult_objective(model, Gurobi)
     x = JuMP.all_variables(model)
-    config_solver!(model)
-
-    # Initial solution
-    solve_small!(model, path2small)
-    logg("Small Solved!")
-
-    sol_hc = nothing
     # Change the objective function 
     logg("Starting the Pareto!")
     hc = nothing
+    sol_hc= nothing
     ε = 450.0
     count = 1
     while true
+        if abs(ctpv_hc - ctpv_hc_min) < ε
+            exit()
+        end
+
         HCP.add_cptv_limit(model, ctpv_hc - ε)
         if isnothing(sol_hc)
             global sol_hc = HCP.run_optimizer!(model, x)
