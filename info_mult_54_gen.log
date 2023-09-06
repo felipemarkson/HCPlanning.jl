@@ -1,0 +1,10 @@
+┌ Info: [ 2023-09-05T08:45:09.053 ] Start!
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T08:47:00.042 ] MIN CTPV: 4.5085835324213564e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T08:47:00.251 ] Starting the Pareto!
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T08:49:24.067 ] Pareto | HC: 0.1287988712
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:45
+┌ Info: [ 2023-09-05T08:49:24.070 ] Pareto | CTPV: 4.5085835324213564e8
+└ @ Main /home/monteiro/HCPlanning.jl/main_mult.jl:45
