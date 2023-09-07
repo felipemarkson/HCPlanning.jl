@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "24bus"
+version = "0.1.0"
+description = ""
+authors = ["Felipe Markson dos Santos Monteiro <fmarkson@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+matplotlib = "^3.7.2"
+pandas = "^2.0.3"
+notebook = "^7.0.2"
+networkx = "^3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
